@@ -1,0 +1,4 @@
+Pillow	# For reading and writing `.png` files
+pynput	# For listening for keyboard input
+
+py360convert == 0.1.0	# For making equirectangular panoramas
