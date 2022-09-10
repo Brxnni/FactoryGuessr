@@ -47,6 +47,7 @@ declare module '$env/static/private' {
 	export const LOCALAPPDATA: string;
 	export const LOGONSERVER: string;
 	export const NODE: string;
+	export const NODE_ENV: string;
 	export const NODE_EXE: string;
 	export const NPM_CLI_JS: string;
 	export const npm_config_access: string;
@@ -179,7 +180,7 @@ declare module '$env/static/private' {
 	export const npm_lifecycle_event: string;
 	export const npm_lifecycle_script: string;
 	export const npm_node_execpath: string;
-	export const npm_package_dependencies__sveltejs_adapter_auto: string;
+	export const npm_package_dependencies__sveltejs_adapter_static: string;
 	export const npm_package_devDependencies_svelte: string;
 	export const npm_package_devDependencies_vite: string;
 	export const npm_package_devDependencies__sveltejs_adapter_static: string;
@@ -278,6 +279,7 @@ declare module '$env/dynamic/private' {
 		LOCALAPPDATA: string;
 		LOGONSERVER: string;
 		NODE: string;
+		NODE_ENV: string;
 		NODE_EXE: string;
 		NPM_CLI_JS: string;
 		npm_config_access: string;
@@ -410,7 +412,7 @@ declare module '$env/dynamic/private' {
 		npm_lifecycle_event: string;
 		npm_lifecycle_script: string;
 		npm_node_execpath: string;
-		npm_package_dependencies__sveltejs_adapter_auto: string;
+		npm_package_dependencies__sveltejs_adapter_static: string;
 		npm_package_devDependencies_svelte: string;
 		npm_package_devDependencies_vite: string;
 		npm_package_devDependencies__sveltejs_adapter_static: string;
