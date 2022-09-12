@@ -1,9 +1,15 @@
 body {
 	margin: 0;
 	padding: 0;
+    background-color: black;
 }
 
-iframe, #panorama {
+* {
+    font-family: "Lato", "Montserrat", "Adobe Garamond", serif;
+    box-sizing: border-box;
+}
+
+#panorama {
     border-style: none;
     position: absolute;
     top: 0;
@@ -13,12 +19,18 @@ iframe, #panorama {
     z-index: 1;
 }
 
+#panorama.disabled {
+    display: none;
+}
+
 .pnlm-about-msg { display: none !important; }
 
 .pnlm-about-msg a:link,
 .pnlm-about-msg a:visited,
 .pnlm-about-msg a:hover,
 .pnlm-about-msg a:active { display: none !important; }
+
+.pnlm-container { background: #212121 url(./../img/pattern.png) !important; }
 
 .leaflet-control-zoom.leaflet-bar.leaflet-control {
     display: none !important;
@@ -28,15 +40,23 @@ iframe, #panorama {
     position: absolute;
     right: 20px;
     bottom: 20px;
-    height: 400px;
-    width: 400px;
-    z-index: 3;
+    height: 40vh;
+    width: 33vw;
+    z-index: 2;
+    padding: 0;
+}
+
+#mapcontainer.full {
+    right: 20px;
+    top: 20px;
+    height: calc(100vh - 40px);
+    width: calc(100vw - 40px);
 }
 
 #map {
     border-radius: 10px;
     width: 100%;
-    height: calc(100% - 2.5em);
+    height: calc(100% - 3.5em);
 	background:
 		radial-gradient(95% 125% at -30% -30%,rgba(202,122,58,0.7) 0%,rgba(40,41,43,0) 110%),
 		radial-gradient(95% 125% at 130% 130%,rgba(58,137,203,0.7) 0%,rgba(40,41,43,0) 110%),
@@ -46,7 +66,7 @@ iframe, #panorama {
 
 #sendbutton {
     margin-top: 0.5em;
-    height: 2em;
+    height: 3em;
     width: 100%;
     border: none;
     border-radius: 10px;
@@ -55,5 +75,76 @@ iframe, #panorama {
     background-color: gray;
     filter: opacity(65%);
     font-weight: 800;
+    line-height: 100%;
     text-transform: uppercase;
+}
+
+#sendbutton.active {
+    background-color: rgb(58,137,203);
+    filter: opacity(100%);
+    cursor: pointer;
+}
+
+#sendbutton.active:hover {
+    transform: scale(105%);
+}
+
+#mapcontainer.full #sendbutton.active:hover {
+    transform: scale(100%);
+}
+
+#gui {
+    z-index: 3;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: calc(2 * 7em + 4px);
+    height: 5em;
+}
+
+#gui > div {
+    position: relative;
+    margin: 0;
+    width: 7em;
+    height: 5em;
+    display: inline-block;
+    background: white;
+    border-radius: 10px;
+}
+
+#gui > div > span:nth-child(1){
+    position: absolute;
+    font-weight: bold;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+#gui > div > span:nth-child(2){
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#scoredisplay {
+    display: none;
+    position: absolute;
+    bottom: 20vh;
+    left: 50vw;
+    transform: translateX(-50%);
+    z-index: 5;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+}
+
+#scoredisplay span:nth-child(1){
+    font-weight: bold;
+}
+
+#scoredisplay.show {
+    display: block;
 }

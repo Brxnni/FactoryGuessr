@@ -9,8 +9,8 @@
 	<link rel="stylesheet" href="./lib/leaflet.css"/>
     <script src="./lib/leaflet.js"></script>
 
-	<!-- <link rel = "stylesheet" href = "./../style.css"> -->
 	<link rel="stylesheet" href="./style.css">
+	<link rel="icon" href="./img/favicon.png" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Game | FactoryGuessr</title>
@@ -19,11 +19,22 @@
 </head>
 <body>
 	
+	<div id="gui">
+		<div>
+			<span>Round:</span>
+			<span id="round">0/5</span>
+		</div>
+		<div>
+			<span>Score:</span>
+			<span id="score">0</span>
+		</div>
+	</div>
 	<div id="panorama"></div>
 	<div id="mapcontainer">
 		<div id="map"></div>
-		<button id="sendbutton">Place Pin on your Map</button>
+		<button tabindex="0" onclick="completeRound();" id="sendbutton">Place Pin on your Map</button>
 	</div>
+	<div id="scoredisplay"></div>
 
 </body>
 </html>
