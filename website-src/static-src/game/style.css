@@ -1,0 +1,59 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+iframe, #panorama {
+    border-style: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.pnlm-about-msg { display: none !important; }
+
+.pnlm-about-msg a:link,
+.pnlm-about-msg a:visited,
+.pnlm-about-msg a:hover,
+.pnlm-about-msg a:active { display: none !important; }
+
+.leaflet-control-zoom.leaflet-bar.leaflet-control {
+    display: none !important;
+}
+
+#mapcontainer {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    height: 400px;
+    width: 400px;
+    z-index: 3;
+}
+
+#map {
+    border-radius: 10px;
+    width: 100%;
+    height: calc(100% - 2.5em);
+	background:
+		radial-gradient(95% 125% at -30% -30%,rgba(202,122,58,0.7) 0%,rgba(40,41,43,0) 110%),
+		radial-gradient(95% 125% at 130% 130%,rgba(58,137,203,0.7) 0%,rgba(40,41,43,0) 110%),
+		rgb(40,41,43);
+    cursor: crosshair;
+}
+
+#sendbutton {
+    margin-top: 0.5em;
+    height: 2em;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    font-style: italic;
+    color: white;
+    background-color: gray;
+    filter: opacity(65%);
+    font-weight: 800;
+    text-transform: uppercase;
+}

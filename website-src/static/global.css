@@ -20,3 +20,22 @@ body {
     rgb(40,41,43);
   background-attachment: fixed;
 }
+
+button.startgame {
+  margin: 15px;
+  font-family: inherit;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5em 1.5em;
+  color: white;
+  font-style: italic;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: rgb(58,137,203);
+}
+
+button.startgame:hover {
+  cursor: pointer;
+  transform: scale(105%);
+}

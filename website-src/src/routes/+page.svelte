@@ -13,6 +13,34 @@
 	import ImageBlock from "../components/ImageBlock.svelte";
 	import Credit from "../components/Credit.svelte";
 	import ShortHR from "../components/ShortHR.svelte";
+
+	let easyMode;
+	let zoom;
+	let pan;
+	let timeLimit = -1;
+
+	function handleChange(id, value){
+		switch (id){
+			case "difficulty": easyMode = !value; break;
+			case "zoom": zoom = !value; break;
+			case "pan": pan = !value; break;
+			case "timelimit":
+				if (value == 0) timeLimit = -1;
+				else timeLimit = value * 5;
+				break;
+		}
+	}
+
+	function startGame(){
+		if (easyMode === undefined) easyMode = true;
+		if (zoom === undefined) zoom = true;
+		if (pan === undefined) pan = true;
+
+		// console.log(easyMode, zoom, pan, timeLimit)
+		// console.log(`./game?easyMode=${easyMode}&zoom=${zoom}&pan=${pan}&timeLimit=${timeLimit}`)
+		window.location = `./game/?easyMode=${easyMode}&zoom=${zoom}&pan=${pan}&timeLimit=${timeLimit}`;
+
+	}
 </script>
 
 <Centered width="80vw">
@@ -21,15 +49,17 @@
 		Like GeoGuessr, but for Satisfactory! <br/>
 		Explore the beautiful landscape from Update 6 and test your knowledge!
 	</p>
-	 
+	
+	<button class="startgame" on:click={startGame}>Start Game!</button>
+
 	<Centered width="60vw">
 		<LinedHeading type="h3" text="Game Settings"/>
 
 		<div>
-			<span tabindex="0"><GameSetting type="switch" id="difficulty"/></span>
-			<span tabindex="0"><GameSetting type="switch" id="zoom"/></span>
-			<span tabindex="0"><GameSetting type="switch" id="pan"/></span>
-			<span tabindex="0"><GameSetting type="slider" id="timelimit"/></span>
+			<span tabindex="0"><GameSetting type="switch" onChange = {handleChange} id="difficulty"/></span>
+			<span tabindex="0"><GameSetting type="switch" onChange = {handleChange} id="zoom"/></span>
+			<span tabindex="0"><GameSetting type="switch" onChange = {handleChange} id="pan"/></span>
+			<span tabindex="0"><GameSetting type="slider" onChange = {handleChange} id="timelimit"/></span>
 		</div>
 
 		<LinedHeading type="h3" text="Contact"/>

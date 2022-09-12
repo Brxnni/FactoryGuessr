@@ -1,5 +1,6 @@
 <script>
 	export let text;
+	export let id;
 </script>
 
 <style>
@@ -16,7 +17,7 @@
 	}
 </style>
 
-<div class="spanblock">
+<div id={id !== undefined ? id : ""} class="spanblock">
 	<span>{text}</span>
 	<slot />
 </div>

@@ -3,6 +3,7 @@
 
 	export let type;
 	export let id;
+	export let onChange;
 
 	function handleText (){ return "Not implemented"; };
 
@@ -123,15 +124,15 @@
 	}
 </style>
 
-<SpanBlock text = {handleText(inputValue)}>
+<SpanBlock id={id} text = {handleText(inputValue)}>
 	{#if type === "switch"}
 		<label class = "switch">
-			<input bind:checked={inputValue} type="checkbox" />
+			<input on:change={onChange(id, inputValue)} bind:checked={inputValue} type="checkbox" />
 			<span class="switchslider"></span>
 		</label>
 	{:else if type === "slider"}
 		<label class = "slider">
-			<input bind:value={inputValue} type="range" min="0" max="12" />
+			<input on:change={onChange(id, inputValue)} bind:value={inputValue} type="range" min="0" max="12" />
 		</label>
 	{/if}
 </SpanBlock>
