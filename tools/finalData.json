@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "imgUrl": "./panoramas/Final.png",
+    "previewUrl": "",
+    "coords": [
+      81.5,
+      -150
+    ]
+  },
+  {
+    "id": "67,67",
+    "imgUrl": "./panoramas/0.png",
+    "previewUrl": "",
+    "coords": [
+      67.0,
+      67.0
+    ]
+  }
+]

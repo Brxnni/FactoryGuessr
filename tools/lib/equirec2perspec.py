@@ -1,8 +1,6 @@
 # ORIGINALLY WRITTEN BY @fuenwang ON GITHUB https://github.com/fuenwang/Equirec2Perspec
 # Package not on pip for some reason
 
-import  os
-import  sys
 import  cv2
 import  numpy as np
 

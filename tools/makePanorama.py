@@ -1,79 +1,102 @@
 import  os
-import  numpy
-import  py360convert
+import	sys
+import	json
 from    PIL import Image
+from	pynput import keyboard
 
-def sidesToFlattenedCubic(inputDirectoryPath: str) -> Image.Image:
+def makePanorama(screenshotsDirPath: str, finalSize: tuple[int]) -> None:
 
-    # Make absolute path
-    inputDirectoryPath = os.path.abspath(inputDirectoryPath)
+	screenshotsDirPath = os.path.abspath(screenshotsDirPath)
+	screenshots = os.listdir(screenshotsDirPath)
 
-    # Read image files for each side
-    images = []
-    
-    # Order is important here \/
-    for sideName in ["Up", "Left", "Front", "Right", "Back", "Down"]:
-        print(f"Reading Pano{sideName}.png...")
-        try:
-            images.append(Image.open(f"{inputDirectoryPath}\\Pano{sideName}.png"))
-        except:
-            print(f"Couldn't find file Pano{sideName}.png!")
-            return
-        
-    # (Assuming all images are squares of the same size),
-    # Read size of all images
-    size = images[0].size[0]
-    
-    # Create image to put everything onto
-    stitched = Image.new("RGB", (size * 4, size * 3))
-    
-    # Add each image individually
-    print("Stitching Image #0..."); stitched.paste(images[0], (size, 0))
-    print("Stitching Image #1..."); stitched.paste(images[1], (0, size))
-    print("Stitching Image #2..."); stitched.paste(images[2], (size, size))
-    print("Stitching Image #3..."); stitched.paste(images[3], (size * 2, size))
-    print("Stitching Image #4..."); stitched.paste(images[4], (size * 3, size))
-    print("Stitching Image #5..."); stitched.paste(images[5], (size, size * 2))
-    
-    # Return image as flattened cubic map
-    # (Saving is not important, because it's used by the same function immediately anyway)
-    return stitched
+	# Check if all 6 images are there
+	if not all([
+		f"Pano{sideName}.png" in screenshots
+		for sideName in ["Up", "Left", "Front", "Right", "Back", "Down"]
+	]):
+		print("Couldn't find all required Pano images!")
+		return
 
-def flattenedCubicToEquirectangular(cubicMap: Image.Image, outputFilePath: str, finalSize: tuple[int]) -> None:
-    """
-    Takes flattened cubic map as PIL Image as converts it to equirectangular image
-    and saves it as {outputFilePath}.
-    See this image: https://github.com/sunset1995/py360convert/blob/master/assert/teaser_convertion.png
-    """
-    
-    # Re-calculate size
-    size = int(cubicMap.size[0] / 4)
-    
-    # Read image as numpy array
-    cubicMapArray = numpy.array(cubicMap)
-    
-    # Convert image from flattened cubic to equirectangular
-    print("Converting to Equirectangular...")
-    eqMapArray = py360convert.c2e(
-        cubemap = cubicMapArray,
-        h = 2 * size,
-        w = 4 * size,
-        mode = "nearest" # This prevents blurring when resizing to bigger image
-    ).astype(numpy.uint8)
-    
-    # Convert image from numpy array to image
-    print("Saving final image...")
-    eqMap = Image.fromarray(eqMapArray, mode = "RGB")
-    
-    # Resize image with "nearest neighbour" mode
-    eqMap = eqMap.resize(finalSize, Image.NEAREST)
-    
-    # Save image
-    eqMap.save(outputFilePath)
+	subDirectoryPaths = [p[0] for p in os.walk(screenshotsDirPath)]
 
-def main(inputDirectoryPath: str, outputFilePath: str, finalSize: tuple[int]) -> None:
+	# All sub dirs should be named after ints
+	i = 0
+	while True:
+		dirPath = f"{screenshotsDirPath}\\{i}.png"
+		if not os.path.exists(dirPath):
+			
+			# Create panorama image
+			os.system("hugin_executor --stitching ./screenshots/HuginStitcher.pto")
+			os.rename(f"{screenshotsDirPath}\\PanoBack - PanoUp.png", dirPath)
 
-    cubic = sidesToFlattenedCubic(inputDirectoryPath)
-    flattenedCubicToEquirectangular(cubic, outputFilePath, finalSize)
+			# Resize panorama image
+			if finalSize != (4096, 2048):
+				img = Image.open(dirPath)
+				img = img.resize(finalSize)
+				img.save(dirPath)
 
-# if __name__ == "__main__": main(".\\screenshots\\2", ".\\screenshots\\2\\Final.png")
+			# Ask user for coords
+			while True:
+				i = input("Please enter coordinates where the image was taken: (x,y) ")
+				try:
+					x, y = i.split(",")
+					x, y = float(x.strip()), float(y.strip())
+					break
+				except: ...
+
+			# Add panorama to json
+			with open("./finalData.json", "r") as file:
+				j = json.loads(file.read())
+
+			j.append({
+				"id": i,
+				"imgUrl": f"./panoramas/{0}.png",
+				"previewUrl": "",
+				"coords": [x, y]
+			})
+
+			with open("./finalData.json", "w") as file:
+				file.write(json.dumps(j, indent = 2))
+    
+			# Delete six side images
+			for sideName in ["Up", "Left", "Front", "Right", "Back", "Down"]:
+				# os.rename(
+					# f"{screenshotsDirPath}\\Pano{sideName}.png",
+					# f"{screenshotsDirPath}\\{i}\\Pano{sideName}.png"
+				# )
+				os.remove(f"{screenshotsDirPath}\\Pano{sideName}.png")
+		
+			break
+		
+		else:
+			i += 1
+
+def onPress(key: str or keyboard.Key) -> None:
+    
+	if key == keyboard.Key.shift_r:
+		# Make screenshot
+		makePanorama(".\\screenshots", (4096, 2048))
+		
+		# Say "Done" when done (usually takes 5-10 seconds)
+		print("Done!")
+	if key == keyboard.Key.esc:
+		sys.exit(0)
+
+def main() -> None:
+
+	print(
+"""
+----- 
+IMPORTANT:
+* /pano res 2048
+* /pano dir "D:/Programming/Websites/FactoryGuessr/tools/screenshots"
+----- 
+"""
+	)
+
+	# Take screenshot every time i press the right shift key
+	listener = keyboard.Listener(on_press = onPress)
+	listener.start()
+	listener.join()
+
+if __name__ == "__main__": main()

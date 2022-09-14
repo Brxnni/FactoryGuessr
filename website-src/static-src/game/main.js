@@ -19,12 +19,7 @@ const flagPath = "./../img/flag.png"
 
 function randomImage(excluded){
 	// This function contains data for every panorama and will give you a random one.
-	let images = [{
-		"id": 0,
-		"imgUrl": "./panoramas/Final.png",
-		"previewUrl": "",
-		"coords": [81.5, -150]
-	}];
+	let images = "$$JSON$$";
 
 	images.filter(function (e){ return (!excluded.includes(e.id)) });
 
