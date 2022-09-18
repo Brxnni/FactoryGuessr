@@ -64,7 +64,7 @@ body {
     cursor: crosshair;
 }
 
-#sendbutton {
+button {
     margin-top: 0.5em;
     height: 3em;
     width: 100%;
@@ -73,10 +73,13 @@ body {
     font-style: italic;
     color: white;
     background-color: gray;
-    filter: opacity(65%);
     font-weight: 800;
     line-height: 100%;
     text-transform: uppercase;
+}
+
+#sendbutton {
+    filter: opacity(65%);
 }
 
 #sendbutton.active {
@@ -147,4 +150,34 @@ body {
 
 #scoredisplay.show {
     display: block;
+}
+
+#resultdisplay {
+    background:
+        radial-gradient(95% 125% at -30% -30%,rgba(202, 58, 58, 0.7) 0%,rgba(40,41,43,0) 110%),
+        radial-gradient(95% 125% at 130% 130%,rgba(58, 186, 203, 0.7) 0%,rgba(40,41,43,0) 110%),
+        rgb(40,41,43);
+    
+    width: 40vw;
+    height: 40vh;
+
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+
+    padding: 35px;
+    border-radius: 10px;
+}
+
+#resultdisplay span {
+    display: block;
+    height: 70%;
+    font-family: "Lato", "Montserrat", "Adobe Garamond", serif;
+    font-weight: 800;
+    font-style: italic;
+    line-height: 100%;
+    font-size: 1.5em;
+    color: white;
+    text-align: center;
 }

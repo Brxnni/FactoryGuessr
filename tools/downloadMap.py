@@ -7,7 +7,7 @@ import  requests
 def main() -> None:
     
     count = 0
-    total = sum([ (5*2**(z-3)) ** 2 for z in range(3, 5) ])
+    total = sum([ (5*2**(z-3)) ** 2 for z in range(3, 8) ])
     
     # Loop through LeafletJS zoom levels
     for z in range(3, 5):

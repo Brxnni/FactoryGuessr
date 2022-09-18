@@ -17,10 +17,8 @@ def makePanorama(screenshotsDirPath: str, finalSize: tuple[int]) -> None:
 		print("Couldn't find all required Pano images!")
 		return
 
-	subDirectoryPaths = [p[0] for p in os.walk(screenshotsDirPath)]
-
 	# All sub dirs should be named after ints
-	i = 0
+	i = 1
 	while True:
 		dirPath = f"{screenshotsDirPath}\\{i}.png"
 		if not os.path.exists(dirPath):
@@ -37,9 +35,9 @@ def makePanorama(screenshotsDirPath: str, finalSize: tuple[int]) -> None:
 
 			# Ask user for coords
 			while True:
-				i = input("Please enter coordinates where the image was taken: (x,y) ")
+				inp = input("Please enter coordinates where the image was taken: (x,y) ")
 				try:
-					x, y = i.split(",")
+					x, y = inp.split(",")
 					x, y = float(x.strip()), float(y.strip())
 					break
 				except: ...
@@ -49,8 +47,8 @@ def makePanorama(screenshotsDirPath: str, finalSize: tuple[int]) -> None:
 				j = json.loads(file.read())
 
 			j.append({
-				"id": i,
-				"imgUrl": f"./panoramas/{0}.png",
+				"id": str(i),
+				"imgUrl": f"./panoramas/{i}.png",
 				"previewUrl": "",
 				"coords": [x, y]
 			})
@@ -79,8 +77,8 @@ def onPress(key: str or keyboard.Key) -> None:
 		
 		# Say "Done" when done (usually takes 5-10 seconds)
 		print("Done!")
-	if key == keyboard.Key.esc:
-		sys.exit(0)
+	# if key == keyboard.Key.esc:
+		# sys.exit(0)
 
 def main() -> None:
 

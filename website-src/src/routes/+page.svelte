@@ -65,7 +65,7 @@
 		<LinedHeading type="h3" text="Contact"/>
 
 		<div>
-			<a href = "https://github.com/Brxnni" tabindex="0"><ImageBlock text="GitHub Repo" altText="GitHub Logo" imageSrc="./img/github.svg"></ImageBlock></a>
+			<a href = "https://github.com/Brxnni/FactoryGuessr" tabindex="0"><ImageBlock text="GitHub Repo" altText="GitHub Logo" imageSrc="./img/github.svg"></ImageBlock></a>
 			<span tabindex="0"><ImageBlock text="Discord: Brxnni#0553" altText="Discord Logo" imageSrc="./img/discord.svg"></ImageBlock></span>
 		</div>
 
