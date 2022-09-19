@@ -46,6 +46,19 @@ body {
     padding: 0;
 }
 
+@media screen and (orientation: portrait) {
+    
+    #mapcontainer {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        width: calc(100vw - 40px);
+        z-index: 2;
+        padding: 0;
+    }
+
+}
+
 #mapcontainer.full {
     right: 20px;
     top: 20px;
