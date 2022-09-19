@@ -421,7 +421,6 @@ function getSettings(){
 function initPannellum(){
 	// Random yaw when pan is false
 	let yaw = settings.pan ? 0 : Math.floor(Math.random()*360)-180
-	console.log(yaw);
 
 	return pannellum.viewer("panorama", {
 		"type": "equirectangular", // this is a really shitty word to spell out
@@ -614,12 +613,12 @@ async function completeRound(){
 	let scoreDisplay = document.getElementById("scoredisplay");
 
 	let start = "";
-	if (totalScore == 5000) start = "WOW!";
-	if (4999 >= totalScore && totalScore >= 3500) start = "Nice!";
-	if (3499 >= totalScore && totalScore >= 2000) start = "That's ok.";
-	if (1999 >= totalScore && totalScore >= 500) start = "Eh...";
-	if (499 >= totalScore && totalScore >= 1) start = "Oh god.";
-	if (totalScore == 0) start = "Have you even played Satisfactory?"
+	if (score == 5000) start = "WOW!";
+	if (4999 >= score && score >= 3500) start = "Nice!";
+	if (3499 >= score && score >= 2000) start = "That's ok.";
+	if (1999 >= score && score >= 500) start = "Eh...";
+	if (499 >= score && score >= 1) start = "Oh god.";
+	if (score == 0) start = "Have you even played Satisfactory?"
 
 	scoreDisplay.innerHTML = `<span>${start}</span><br/><span>Your guess was ${Math.round(distance)}m away and you got ${score} points!</span>`;
 	scoreDisplay.classList.add("show");
