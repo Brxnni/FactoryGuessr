@@ -8,6 +8,7 @@ TODO: Make the buttons at Finished round look nicer
 TODO: Fix background pattern not working at FInished Round
 TODO: Make Easy/Hard Mode and Time limit work
 TODO: Add a lot more panoramas
+TODO: Make viewing angle random when pan is off for extra difficulty
 
 # How to render website-src
 
