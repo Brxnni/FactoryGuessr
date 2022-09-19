@@ -619,6 +619,7 @@ async function completeRound(){
 	if (3499 >= totalScore && totalScore >= 2000) start = "That's ok.";
 	if (1999 >= totalScore && totalScore >= 500) start = "Eh...";
 	if (499 >= totalScore && totalScore >= 1) start = "Oh god.";
+	if (totalScore == 0) start = "Have you even played Satisfactory?"
 
 	scoreDisplay.innerHTML = `<span>${start}</span><br/><span>Your guess was ${Math.round(distance)}m away and you got ${score} points!</span>`;
 	scoreDisplay.classList.add("show");

@@ -15,6 +15,10 @@ This code is a mess. Anyways:
 * ~~TODO: Rework formula for points (ideally S-curve)~~
 * TODO: Prevent leaflet from 404'ing so much
 
+# Ideas
+
+* Time after image disappears
+
 # How to render website-src
 
 This website is made with Svelte-Kit so I can render it as static HTML, CSS and JS files to upload to my file hosting server (I didn't bother getting a real server, just file hosting)
