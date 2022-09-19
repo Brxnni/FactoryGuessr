@@ -604,7 +604,7 @@ async function completeRound(){
 		Math.abs(sfCorrectCoords[1] - sfUserCoords[1]) ** 2
 	)
 	distance = distance;
-	let score = Math.round(5000 * 0.998 ** ((distance - 80) * 0.3));
+	let score = Math.round(5000*Math.e**((x*Math.log(700/2500))/1001));
 	if (distance <= 80) score = 5000;
 	totalScore += score;
 	let scoreSpan = document.getElementById("score");
