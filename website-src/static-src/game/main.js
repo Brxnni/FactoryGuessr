@@ -521,7 +521,7 @@ function finishGame(){
 	let resultDisplay = document.getElementById("resultdisplay");
 	resultDisplay.classList.add("show");
 
-	resultDisplay.querySelector("span").innerHTML = `Congratulations! You achieved a total of ${totalScore} Points!`;
+	resultDisplay.querySelector("span").innerHTML = `The game is over! You achieved a total of ${totalScore} Points.`;
 
 }
 
@@ -612,7 +612,15 @@ async function completeRound(){
 
 	// Score display thingy
 	let scoreDisplay = document.getElementById("scoredisplay");
-	scoreDisplay.innerHTML = `<span>Congratulations!</span><br/><span>Your guess was ${Math.round(distance)}m away and you got ${score} points!</span>`;
+
+	let start = "";
+	if (totalScore == 5000) start = "WOW!";
+	if (4999 >= totalScore && totalScore >= 3500) start = "Nice!";
+	if (3499 >= totalScore && totalScore >= 2000) start = "That's ok.";
+	if (1999 >= totalScore && totalScore >= 500) start = "Eh...";
+	if (499 >= totalScore && totalScore >= 1) start = "Oh god.";
+
+	scoreDisplay.innerHTML = `<span>${start}</span><br/><span>Your guess was ${Math.round(distance)}m away and you got ${score} points!</span>`;
 	scoreDisplay.classList.add("show");
 
 	// === PANNELLUM ===

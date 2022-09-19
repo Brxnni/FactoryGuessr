@@ -13,6 +13,7 @@ This code is a mess. Anyways:
 * ~~TODO: Credit: Rafa als Betatester~~
 * ~~TODO: Disable double-tap zoom for Pannellum~~
 * TODO: Rework formula for points (ideally S-curve)
+* TODO: Prevent leaflet from 404'ing so much
 
 # How to render website-src
 
