@@ -12,6 +12,7 @@ This code is a mess. Anyways:
 * TODO: Make space key change behaviour just like #submitbutton
 * TODO: Credit: Magnus als "Hurensohn"
 * TODO: Credit: Rafa als Betatester
+* TODO: Disable double-tap zoom for Pannellum
 
 # How to render website-src
 
