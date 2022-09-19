@@ -6,8 +6,8 @@ This code is a mess. Anyways:
 
 ## TODO
 
-* TODO: Make finished round seperate page (a lot cleaner)
-* TODO: Fix background pattern not working at Finished Round
+* ~~TODO: Make finished round seperate page (a lot cleaner)~~
+* ~~TODO: Fix background pattern not working at Finished Round~~
 * TODO: Make Easy/Hard Mode and Time limit work
 * TODO: Add a lot more panoramas
 * ~~TODO: Make viewing angle random when pan is off for extra difficulty~~

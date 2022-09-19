@@ -506,22 +506,7 @@ function SFXYtoPoint(sf){
 }
 
 function finishGame(){
-
-	document.getElementById("mapcontainer").remove();
-
-	document.body.style.background = `
-	radial-gradient(95% 125% at -30% -30%,rgba(58, 186, 203, 0.7) 0%,rgba(40,41,43,0) 110%),
-	radial-gradient(95% 125% at 130% 130%,rgba(202, 58, 58, 0.7) 0%,rgba(40,41,43,0) 110%),
-	rgb(40,41,43);`
-
-	let scoreDisplay = document.getElementById("scoredisplay");
-	scoreDisplay.classList.remove("show");
-
-	let resultDisplay = document.getElementById("resultdisplay");
-	resultDisplay.classList.add("show");
-
-	resultDisplay.querySelector("span").innerHTML = `The game is over! You achieved a total of ${totalScore} Points.`;
-
+	window.location = `./../finish/${window.location.search}&score=${totalScore}`
 }
 
 async function completeRound(){

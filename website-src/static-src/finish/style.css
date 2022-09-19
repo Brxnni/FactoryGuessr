@@ -1,0 +1,54 @@
+body {
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	width: 100vw;
+    background: 
+		radial-gradient(95% 125% at -30% -30%,rgba(58, 186, 203, 0.7) 0%,rgba(40,41,43,0) 110%),
+		radial-gradient(95% 125% at 130% 130%,rgba(202, 58, 58, 0.7) 0%,rgba(40,41,43,0) 110%),
+		rgb(40,41,43);
+}
+
+* {
+    font-family: "Lato", "Montserrat", "Adobe Garamond", serif;
+    box-sizing: border-box;
+}
+
+div {
+	position: absolute;
+	top: 50vh;
+	left: 50vw;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+span {
+	display: block;
+	color: white;
+	font-size: 1.8em;
+}
+
+span#points {
+	margin: 15px;
+	font-weight: bold;
+	font-size: 3.5em;
+}
+
+button {
+    margin-top: 1em;
+    height: 3em;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    font-style: italic;
+    color: white;
+    background-color: rgb(58,137,203);
+    font-weight: 800;
+    line-height: 100%;
+    text-transform: uppercase;
+}
+
+button:hover {
+	transform: scale(105%);
+	cursor: pointer;
+}

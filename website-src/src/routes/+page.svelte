@@ -39,7 +39,6 @@
 		// console.log(easyMode, zoom, pan, timeLimit)
 		// console.log(`./game?easyMode=${easyMode}&zoom=${zoom}&pan=${pan}&timeLimit=${timeLimit}`)
 		window.location = `./game/?easyMode=${easyMode}&zoom=${zoom}&pan=${pan}&timeLimit=${timeLimit}`;
-
 	}
 </script>
 
