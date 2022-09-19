@@ -426,7 +426,8 @@ function initPannellum(){
 		"friction": 0.2,
 		"draggable": settings.pan,
 		"mouseZoom": settings.zoom,
-		"scenes": {}
+		"scenes": {},
+		"yaw": settings.pan ? 0 : Math.floor(Math.random()*360)-180 // Random yaw when pan is false
 	});
 }
 
