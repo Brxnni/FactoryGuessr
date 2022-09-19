@@ -1,8 +1,10 @@
-# Disclaimer
+# FactoryGuessr
+
+## Disclaimer
 
 This code is a mess. Anyways:
 
-# TODO
+## TODO
 
 * TODO: Make finished round seperate page (a lot cleaner)
 * TODO: Fix background pattern not working at Finished Round
@@ -15,11 +17,11 @@ This code is a mess. Anyways:
 * ~~TODO: Rework formula for points (ideally S-curve)~~
 * TODO: Prevent leaflet from 404'ing so much
 
-# Ideas
+## Ideas
 
 * Time after image disappears
 
-# How to render website-src
+## How to render website-src
 
 This website is made with Svelte-Kit so I can render it as static HTML, CSS and JS files to upload to my file hosting server (I didn't bother getting a real server, just file hosting)
 
@@ -29,12 +31,12 @@ cd website-src
 # Final files are located in ./website-src/build
 ```
 
-# File Structure
+## File Structure
 
-## `website-src`
+### `website-src`
 
 Svelte files that are compiled to HTML, CSS and JS.
 
-## `tools`
+### `tools`
 
 Tools (mostly Python files) that I used to make the website.
