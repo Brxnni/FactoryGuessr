@@ -506,7 +506,7 @@ function SFXYtoPoint(sf){
 }
 
 function finishGame(){
-	window.location = `./../finish/${window.location.search}&score=${totalScore}`
+	window.location = `./../finish/?easyMode=${settings.easyMode}&zoom=${settings.zoom}&pan=${settings.pan}&timeLimit=${settings.timeLimit}&score=${totalScore}`
 }
 
 async function completeRound(){
