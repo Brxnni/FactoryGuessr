@@ -419,6 +419,10 @@ function getSettings(){
 }
 
 function initPannellum(){
+	// Random yaw when pan is false
+	let yaw = settings.pan ? 0 : Math.floor(Math.random()*360)-180
+	console.log(yaw);
+
 	return pannellum.viewer("panorama", {
 		"type": "equirectangular", // this is a really shitty word to spell out
 		"hfov": 120,
@@ -426,8 +430,9 @@ function initPannellum(){
 		"friction": 0.2,
 		"draggable": settings.pan,
 		"mouseZoom": settings.zoom,
+		"doubleClickZoom": settings.zoom,
 		"scenes": {},
-		"yaw": settings.pan ? 0 : Math.floor(Math.random()*360)-180 // Random yaw when pan is false
+		"yaw": yaw
 	});
 }
 
@@ -523,8 +528,6 @@ function finishGame(){
 async function completeRound(){
 	// This function runs when pressing "Guess!"
 
-	// TODO: IMPLEMENT DIFFERENT BEHAVIOUR WHEN ROUND COUNTER IS 5
-
 	// If button isn't active, ignore
 	let submitButton = document.getElementById("sendbutton")
 	if (!submitButton.classList.contains("active")){ return; }
@@ -535,9 +538,11 @@ async function completeRound(){
 	if (roundCounter != 5){
 		submitButton.innerHTML = "Next Round";
 		submitButton.onclick = startRound;
+		document.body.onkeydown = function(e) { if (e.key == " " || e.code == "Space"){ startRound(); } }
 	} else {
 		submitButton.innerHTML = "Finish Game";
 		submitButton.onclick = finishGame;
+		document.body.onkeydown = function(e) { if (e.key == " " || e.code == "Space"){ finishGame(); } }
 	}
 	let mapContainer = document.getElementById("mapcontainer");
 	mapContainer.classList.add("full");
@@ -617,6 +622,7 @@ async function completeRound(){
 
 function startRound(){
 	// This function runs when pressing "Continue" after seeing the results of the round
+	document.body.onkeydown = function(e) { if (e.key == " " || e.code == "Space"){ completeRound(); } }
 
 	roundCounter++;
 
@@ -693,7 +699,7 @@ function startRound(){
 }
 
 // User can also use space key to submit form
-document.body.onkeydown = function(e) { if (e.key == " " || e.code == "Space"){ completeRound(); } }
+
 
 getSettings();
 startRound();

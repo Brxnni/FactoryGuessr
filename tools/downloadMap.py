@@ -10,7 +10,7 @@ def main() -> None:
     total = sum([ (5*2**(z-3)) ** 2 for z in range(3, 8) ])
     
     # Loop through LeafletJS zoom levels
-    for z in range(3, 5):
+    for z in range(3, 8):
         
         for x in range(5*2**(z-3)):
             for y in range(5*2**(z-3)):
