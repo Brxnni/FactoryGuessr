@@ -16,6 +16,7 @@ This code is a mess. Anyways:
 * ~~TODO: Disable double-tap zoom for Pannellum~~
 * ~~TODO: Rework formula for points (ideally S-curve)~~
 * TODO: Prevent leaflet from 404'ing so much
+* TODO: Add __pycache__ to .gitignore
 
 ## Ideas
 
