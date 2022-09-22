@@ -3,3 +3,5 @@ node_modules
 build/
 .svelte-kit/
 map/
+__pycache__/
+website-src/static-src/panoramas/*
