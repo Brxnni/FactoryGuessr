@@ -12,11 +12,12 @@ This code is a mess. Anyways:
 * TODO: Add a lot more panoramas
 * ~~TODO: Make viewing angle random when pan is off for extra difficulty~~
 * ~~TODO: Make space key change behaviour just like #submitbutton~~
-* ~~TODO: Credit: Rafa als Betatester~~
+* TODO: Credit: Rafa als Betatester
 * ~~TODO: Disable double-tap zoom for Pannellum~~
 * ~~TODO: Rework formula for points (ideally S-curve)~~
 * TODO: Prevent leaflet from 404'ing so much
 * TODO: Add __pycache__ to .gitignore
+* TODO: Change score formula accordingly to Easy/Hard Mode
 
 ## Ideas
 
