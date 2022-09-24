@@ -1,4 +1,5 @@
 let map;
+let viewer;
 let tileLayer;
 let userMarker;
 let totalScore = 0;
@@ -21,7 +22,6 @@ function randomImages(){
 		{
 		  "id": "0",
 		  "imgUrl": "./panoramas/0.png",
-		  "previewUrl": "",
 		  "coords": [
 			532.0,
 			-2301.0
@@ -30,7 +30,6 @@ function randomImages(){
 		{
 		  "id": "1",
 		  "imgUrl": "./panoramas/1.png",
-		  "previewUrl": "",
 		  "coords": [
 			-82.0,
 			-1771.0
@@ -39,7 +38,6 @@ function randomImages(){
 		{
 		  "id": "2",
 		  "imgUrl": "./panoramas/2.png",
-		  "previewUrl": "",
 		  "coords": [
 			-900.0,
 			-1525.0
@@ -48,7 +46,6 @@ function randomImages(){
 		{
 		  "id": "3",
 		  "imgUrl": "./panoramas/3.png",
-		  "previewUrl": "",
 		  "coords": [
 			-610.0,
 			-440.0
@@ -57,7 +54,6 @@ function randomImages(){
 		{
 		  "id": "4",
 		  "imgUrl": "./panoramas/4.png",
-		  "previewUrl": "",
 		  "coords": [
 			-1133.0,
 			400.0
@@ -66,7 +62,6 @@ function randomImages(){
 		{
 		  "id": "5",
 		  "imgUrl": "./panoramas/5.png",
-		  "previewUrl": "",
 		  "coords": [
 			-2404.0,
 			310.0
@@ -75,7 +70,6 @@ function randomImages(){
 		{
 		  "id": "6",
 		  "imgUrl": "./panoramas/6.png",
-		  "previewUrl": "",
 		  "coords": [
 			-1775.0,
 			1945.0
@@ -84,7 +78,6 @@ function randomImages(){
 		{
 		  "id": "7",
 		  "imgUrl": "./panoramas/7.png",
-		  "previewUrl": "",
 		  "coords": [
 			-1520.0,
 			2321.0
@@ -93,7 +86,6 @@ function randomImages(){
 		{
 		  "id": "8",
 		  "imgUrl": "./panoramas/8.png",
-		  "previewUrl": "",
 		  "coords": [
 			-123.0,
 			2853.0
@@ -102,7 +94,6 @@ function randomImages(){
 		{
 		  "id": "9",
 		  "imgUrl": "./panoramas/9.png",
-		  "previewUrl": "",
 		  "coords": [
 			882.0,
 			1203.0
@@ -111,7 +102,6 @@ function randomImages(){
 		{
 		  "id": "10",
 		  "imgUrl": "./panoramas/10.png",
-		  "previewUrl": "",
 		  "coords": [
 			363.0,
 			2340.0
@@ -120,7 +110,6 @@ function randomImages(){
 		{
 		  "id": "11",
 		  "imgUrl": "./panoramas/11.png",
-		  "previewUrl": "",
 		  "coords": [
 			831.0,
 			2267.0
@@ -129,7 +118,6 @@ function randomImages(){
 		{
 		  "id": "12",
 		  "imgUrl": "./panoramas/12.png",
-		  "previewUrl": "",
 		  "coords": [
 			1566.0,
 			2389.0
@@ -138,7 +126,6 @@ function randomImages(){
 		{
 		  "id": "13",
 		  "imgUrl": "./panoramas/13.png",
-		  "previewUrl": "",
 		  "coords": [
 			1369.0,
 			1985.0
@@ -147,7 +134,6 @@ function randomImages(){
 		{
 		  "id": "14",
 		  "imgUrl": "./panoramas/14.png",
-		  "previewUrl": "",
 		  "coords": [
 			2158.0,
 			1379.0
@@ -156,7 +142,6 @@ function randomImages(){
 		{
 		  "id": "15",
 		  "imgUrl": "./panoramas/15.png",
-		  "previewUrl": "",
 		  "coords": [
 			2683.0,
 			1037.0
@@ -165,7 +150,6 @@ function randomImages(){
 		{
 		  "id": "16",
 		  "imgUrl": "./panoramas/16.png",
-		  "previewUrl": "",
 		  "coords": [
 			2237.0,
 			434.0
@@ -174,7 +158,6 @@ function randomImages(){
 		{
 		  "id": "17",
 		  "imgUrl": "./panoramas/17.png",
-		  "previewUrl": "",
 		  "coords": [
 			2541.0,
 			-222.0
@@ -183,7 +166,6 @@ function randomImages(){
 		{
 		  "id": "18",
 		  "imgUrl": "./panoramas/18.png",
-		  "previewUrl": "",
 		  "coords": [
 			2407.0,
 			-680.0
@@ -192,7 +174,6 @@ function randomImages(){
 		{
 		  "id": "19",
 		  "imgUrl": "./panoramas/19.png",
-		  "previewUrl": "",
 		  "coords": [
 			3264.0,
 			-951.0
@@ -201,7 +182,6 @@ function randomImages(){
 		{
 		  "id": "20",
 		  "imgUrl": "./panoramas/20.png",
-		  "previewUrl": "",
 		  "coords": [
 			2819.0,
 			-753.0
@@ -210,7 +190,6 @@ function randomImages(){
 		{
 		  "id": "21",
 		  "imgUrl": "./panoramas/21.png",
-		  "previewUrl": "",
 		  "coords": [
 			3559.0,
 			-2184.0
@@ -219,7 +198,6 @@ function randomImages(){
 		{
 		  "id": "22",
 		  "imgUrl": "./panoramas/22.png",
-		  "previewUrl": "",
 		  "coords": [
 			2868.0,
 			-2981.0
@@ -228,7 +206,6 @@ function randomImages(){
 		{
 		  "id": "23",
 		  "imgUrl": "./panoramas/23.png",
-		  "previewUrl": "",
 		  "coords": [
 			1864.0,
 			-1892.0
@@ -237,7 +214,6 @@ function randomImages(){
 		{
 		  "id": "24",
 		  "imgUrl": "./panoramas/24.png",
-		  "previewUrl": "",
 		  "coords": [
 			1647.0,
 			-2213.0
@@ -246,7 +222,6 @@ function randomImages(){
 		{
 		  "id": "25",
 		  "imgUrl": "./panoramas/25.png",
-		  "previewUrl": "",
 		  "coords": [
 			1429.0,
 			-2408.0
@@ -255,7 +230,6 @@ function randomImages(){
 		{
 		  "id": "26",
 		  "imgUrl": "./panoramas/26.png",
-		  "previewUrl": "",
 		  "coords": [
 			2395.0,
 			-2424.0
@@ -264,7 +238,6 @@ function randomImages(){
 		{
 		  "id": "27",
 		  "imgUrl": "./panoramas/27.png",
-		  "previewUrl": "",
 		  "coords": [
 			1299.0,
 			-1217.0
@@ -273,7 +246,6 @@ function randomImages(){
 		{
 		  "id": "28",
 		  "imgUrl": "./panoramas/28.png",
-		  "previewUrl": "",
 		  "coords": [
 			285.0,
 			-1919.0
@@ -282,7 +254,6 @@ function randomImages(){
 		{
 		  "id": "29",
 		  "imgUrl": "./panoramas/29.png",
-		  "previewUrl": "",
 		  "coords": [
 			-197.0,
 			-2408.0
@@ -291,7 +262,6 @@ function randomImages(){
 		{
 		  "id": "30",
 		  "imgUrl": "./panoramas/30.png",
-		  "previewUrl": "",
 		  "coords": [
 			-861.0,
 			-1853.0
@@ -300,7 +270,6 @@ function randomImages(){
 		{
 		  "id": "31",
 		  "imgUrl": "./panoramas/31.png",
-		  "previewUrl": "",
 		  "coords": [
 			-1768.0,
 			-875.0
@@ -309,7 +278,6 @@ function randomImages(){
 		{
 		  "id": "32",
 		  "imgUrl": "./panoramas/32.png",
-		  "previewUrl": "",
 		  "coords": [
 			-2709.0,
 			-722.0
@@ -318,7 +286,6 @@ function randomImages(){
 		{
 		  "id": "33",
 		  "imgUrl": "./panoramas/33.png",
-		  "previewUrl": "",
 		  "coords": [
 			-2801.0,
 			-265.0
@@ -327,7 +294,6 @@ function randomImages(){
 		{
 		  "id": "34",
 		  "imgUrl": "./panoramas/34.png",
-		  "previewUrl": "",
 		  "coords": [
 			318.0,
 			-227.0
@@ -336,7 +302,6 @@ function randomImages(){
 		{
 		  "id": "35",
 		  "imgUrl": "./panoramas/35.png",
-		  "previewUrl": "",
 		  "coords": [
 			684.0,
 			-10.0
@@ -345,7 +310,6 @@ function randomImages(){
 		{
 		  "id": "36",
 		  "imgUrl": "./panoramas/36.png",
-		  "previewUrl": "",
 		  "coords": [
 			1350.0,
 			-905.0
@@ -354,7 +318,6 @@ function randomImages(){
 		{
 		  "id": "37",
 		  "imgUrl": "./panoramas/37.png",
-		  "previewUrl": "",
 		  "coords": [
 			133.0,
 			138.0
@@ -363,7 +326,6 @@ function randomImages(){
 		{
 		  "id": "38",
 		  "imgUrl": "./panoramas/38.png",
-		  "previewUrl": "",
 		  "coords": [
 			451.0,
 			488.0
@@ -372,7 +334,6 @@ function randomImages(){
 		{
 		  "id": "39",
 		  "imgUrl": "./panoramas/39.png",
-		  "previewUrl": "",
 		  "coords": [
 			225.0,
 			1465.0
@@ -381,7 +342,6 @@ function randomImages(){
 		{
 		  "id": "40",
 		  "imgUrl": "./panoramas/40.png",
-		  "previewUrl": "",
 		  "coords": [
 			426.0,
 			816.0
@@ -390,7 +350,6 @@ function randomImages(){
 		{
 		  "id": "41",
 		  "imgUrl": "./panoramas/41.png",
-		  "previewUrl": "",
 		  "coords": [
 			547.0,
 			-1126.0
@@ -405,13 +364,7 @@ function randomImages(){
 	return images.slice(0, 5);
 }
 
-panoramas = randomImages();
-
-// Preload images by loading into browser cache
-panoramas.forEach((panorama) => {
-	let img = new Image();
-    img.src = panorama.imgUrl;
-});
+let panoramas = randomImages();
 
 function getSettings(){
 	if (window.location.search){
@@ -425,11 +378,11 @@ function getSettings(){
 	}
 }
 
-function initPannellum(){
+function initPannellum(sceneId){
 	// Random yaw when pan is false
 	let yaw = settings.pan ? 0 : Math.floor(Math.random()*360)-180
 
-	return pannellum.viewer("panorama", {
+	viewer = pannellum.viewer("panorama", {
 		"type": "equirectangular", // this is a really shitty word to spell out
 		"hfov": 120,
 		"autoLoad": true,
@@ -437,9 +390,11 @@ function initPannellum(){
 		"draggable": settings.pan,
 		"mouseZoom": settings.zoom,
 		"doubleClickZoom": settings.zoom,
-		"scenes": {},
+		"panorama": panoramas[sceneId].imgUrl,
 		"yaw": yaw
 	});
+
+	return viewer;
 }
 
 function initLeaflet(){
@@ -664,17 +619,11 @@ function startRound(){
 	document.getElementById("panorama").innerHTML = "";
 
 	// Create new viewer
-	let viewer = initPannellum();
+	let viewer = initPannellum(roundCounter - 1);
 
 	// Get random panorama image to display next
 	let image = panoramas[roundCounter - 1];
 	console.log(image);
-
-	viewer.addScene("scene", {
-		"panorama": image.imgUrl,
-		"preview": image.previewUrl
-	});
-	viewer.loadScene("scene");
 
 	sfCorrectCoords = image.coords;
 

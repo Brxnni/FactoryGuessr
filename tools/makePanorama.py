@@ -47,9 +47,7 @@ def makePanorama(screenshotsDirPath: str, finalSize: tuple[int]) -> None:
 				j = json.loads(file.read())
 
 			j.append({
-				"id": str(i),
 				"imgUrl": f"./panoramas/{i}.png",
-				"previewUrl": "",
 				"coords": [x, y]
 			})
 
