@@ -21,7 +21,7 @@
 		height: 1px;
 		position: relative;
 		vertical-align: middle;
-    width: 50%;
+    	width: 50%;
 	}
 
 	h1:before,h2:before,h3:before {

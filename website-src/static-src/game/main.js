@@ -12,399 +12,406 @@ let settings = {
 };
 let sfCorrectCoords = [];
 let userCoords = [];
-let usedPanoramas = [];
 
 const markerPath = "./../img/marker.png"
 const flagPath = "./../img/flag.png"
 
-function randomImage(excluded){
-	// This function contains data for every panorama and will give you a random one.
+function randomImages(){
 	let images = [
-	  {
-	    "id": "0",
-	    "imgUrl": "./panoramas/0.png",
-	    "previewUrl": "",
-	    "coords": [
-	      532.0,
-	      -2301.0
-	    ]
-	  },
-	  {
-	    "id": "1",
-	    "imgUrl": "./panoramas/1.png",
-	    "previewUrl": "",
-	    "coords": [
-	      -82.0,
-	      -1771.0
-	    ]
-	  },
-	  {
-	    "id": "2",
-	    "imgUrl": "./panoramas/2.png",
-	    "previewUrl": "",
-	    "coords": [
-	      -900.0,
-	      -1525.0
-	    ]
-	  },
-	  {
-	    "id": "3",
-	    "imgUrl": "./panoramas/3.png",
-	    "previewUrl": "",
-	    "coords": [
-	      -610.0,
-	      -440.0
-	    ]
-	  },
-	  {
-	    "id": "4",
-	    "imgUrl": "./panoramas/4.png",
-	    "previewUrl": "",
-	    "coords": [
-	      -1133.0,
-	      400.0
-	    ]
-	  },
-	  {
-	    "id": "5",
-	    "imgUrl": "./panoramas/5.png",
-	    "previewUrl": "",
-	    "coords": [
-	      -2404.0,
-	      310.0
-	    ]
-	  },
-	  {
-	    "id": "6",
-	    "imgUrl": "./panoramas/6.png",
-	    "previewUrl": "",
-	    "coords": [
-	      -1775.0,
-	      1945.0
-	    ]
-	  },
-	  {
-	    "id": "7",
-	    "imgUrl": "./panoramas/7.png",
-	    "previewUrl": "",
-	    "coords": [
-	      -1520.0,
-	      2321.0
-	    ]
-	  },
-	  {
-	    "id": "8",
-	    "imgUrl": "./panoramas/8.png",
-	    "previewUrl": "",
-	    "coords": [
-	      -123.0,
-	      2853.0
-	    ]
-	  },
-	  {
-	    "id": "9",
-	    "imgUrl": "./panoramas/9.png",
-	    "previewUrl": "",
-	    "coords": [
-	      882.0,
-	      1203.0
-	    ]
-	  },
-	  {
-	    "id": "10",
-	    "imgUrl": "./panoramas/10.png",
-	    "previewUrl": "",
-	    "coords": [
-	      363.0,
-	      2340.0
-	    ]
-	  },
-	  {
-	    "id": "11",
-	    "imgUrl": "./panoramas/11.png",
-	    "previewUrl": "",
-	    "coords": [
-	      831.0,
-	      2267.0
-	    ]
-	  },
-	  {
-	    "id": "12",
-	    "imgUrl": "./panoramas/12.png",
-	    "previewUrl": "",
-	    "coords": [
-	      1566.0,
-	      2389.0
-	    ]
-	  },
-	  {
-	    "id": "13",
-	    "imgUrl": "./panoramas/13.png",
-	    "previewUrl": "",
-	    "coords": [
-	      1369.0,
-	      1985.0
-	    ]
-	  },
-	  {
-	    "id": "14",
-	    "imgUrl": "./panoramas/14.png",
-	    "previewUrl": "",
-	    "coords": [
-	      2158.0,
-	      1379.0
-	    ]
-	  },
-	  {
-	    "id": "15",
-	    "imgUrl": "./panoramas/15.png",
-	    "previewUrl": "",
-	    "coords": [
-	      2683.0,
-	      1037.0
-	    ]
-	  },
-	  {
-	    "id": "16",
-	    "imgUrl": "./panoramas/16.png",
-	    "previewUrl": "",
-	    "coords": [
-	      2237.0,
-	      434.0
-	    ]
-	  },
-	  {
-	    "id": "17",
-	    "imgUrl": "./panoramas/17.png",
-	    "previewUrl": "",
-	    "coords": [
-	      2541.0,
-	      -222.0
-	    ]
-	  },
-	  {
-	    "id": "18",
-	    "imgUrl": "./panoramas/18.png",
-	    "previewUrl": "",
-	    "coords": [
-	      2407.0,
-	      -680.0
-	    ]
-	  },
-	  {
-	    "id": "19",
-	    "imgUrl": "./panoramas/19.png",
-	    "previewUrl": "",
-	    "coords": [
-	      3264.0,
-	      -951.0
-	    ]
-	  },
-	  {
-	    "id": "20",
-	    "imgUrl": "./panoramas/20.png",
-	    "previewUrl": "",
-	    "coords": [
-	      2819.0,
-	      -753.0
-	    ]
-	  },
-	  {
-	    "id": "21",
-	    "imgUrl": "./panoramas/21.png",
-	    "previewUrl": "",
-	    "coords": [
-	      3559.0,
-	      -2184.0
-	    ]
-	  },
-	  {
-	    "id": "22",
-	    "imgUrl": "./panoramas/22.png",
-	    "previewUrl": "",
-	    "coords": [
-	      2868.0,
-	      -2981.0
-	    ]
-	  },
-	  {
-	    "id": "23",
-	    "imgUrl": "./panoramas/23.png",
-	    "previewUrl": "",
-	    "coords": [
-	      1864.0,
-	      -1892.0
-	    ]
-	  },
-	  {
-	    "id": "24",
-	    "imgUrl": "./panoramas/24.png",
-	    "previewUrl": "",
-	    "coords": [
-	      1647.0,
-	      -2213.0
-	    ]
-	  },
-	  {
-	    "id": "25",
-	    "imgUrl": "./panoramas/25.png",
-	    "previewUrl": "",
-	    "coords": [
-	      1429.0,
-	      -2408.0
-	    ]
-	  },
-	  {
-	    "id": "26",
-	    "imgUrl": "./panoramas/26.png",
-	    "previewUrl": "",
-	    "coords": [
-	      2395.0,
-	      -2424.0
-	    ]
-	  },
-	  {
-	    "id": "27",
-	    "imgUrl": "./panoramas/27.png",
-	    "previewUrl": "",
-	    "coords": [
-	      1299.0,
-	      -1217.0
-	    ]
-	  },
-	  {
-	    "id": "28",
-	    "imgUrl": "./panoramas/28.png",
-	    "previewUrl": "",
-	    "coords": [
-	      285.0,
-	      -1919.0
-	    ]
-	  },
-	  {
-	    "id": "29",
-	    "imgUrl": "./panoramas/29.png",
-	    "previewUrl": "",
-	    "coords": [
-	      -197.0,
-	      -2408.0
-	    ]
-	  },
-	  {
-	    "id": "30",
-	    "imgUrl": "./panoramas/30.png",
-	    "previewUrl": "",
-	    "coords": [
-	      -861.0,
-	      -1853.0
-	    ]
-	  },
-	  {
-	    "id": "31",
-	    "imgUrl": "./panoramas/31.png",
-	    "previewUrl": "",
-	    "coords": [
-	      -1768.0,
-	      -875.0
-	    ]
-	  },
-	  {
-	    "id": "32",
-	    "imgUrl": "./panoramas/32.png",
-	    "previewUrl": "",
-	    "coords": [
-	      -2709.0,
-	      -722.0
-	    ]
-	  },
-	  {
-	    "id": "33",
-	    "imgUrl": "./panoramas/33.png",
-	    "previewUrl": "",
-	    "coords": [
-	      -2801.0,
-	      -265.0
-	    ]
-	  },
-	  {
-	    "id": "34",
-	    "imgUrl": "./panoramas/34.png",
-	    "previewUrl": "",
-	    "coords": [
-	      318.0,
-	      -227.0
-	    ]
-	  },
-	  {
-	    "id": "35",
-	    "imgUrl": "./panoramas/35.png",
-	    "previewUrl": "",
-	    "coords": [
-	      684.0,
-	      -10.0
-	    ]
-	  },
-	  {
-	    "id": "36",
-	    "imgUrl": "./panoramas/36.png",
-	    "previewUrl": "",
-	    "coords": [
-	      1350.0,
-	      -905.0
-	    ]
-	  },
-	  {
-	    "id": "37",
-	    "imgUrl": "./panoramas/37.png",
-	    "previewUrl": "",
-	    "coords": [
-	      133.0,
-	      138.0
-	    ]
-	  },
-	  {
-	    "id": "38",
-	    "imgUrl": "./panoramas/38.png",
-	    "previewUrl": "",
-	    "coords": [
-	      451.0,
-	      488.0
-	    ]
-	  },
-	  {
-	    "id": "39",
-	    "imgUrl": "./panoramas/39.png",
-	    "previewUrl": "",
-	    "coords": [
-	      225.0,
-	      1465.0
-	    ]
-	  },
-	  {
-	    "id": "40",
-	    "imgUrl": "./panoramas/40.png",
-	    "previewUrl": "",
-	    "coords": [
-	      426.0,
-	      816.0
-	    ]
-	  },
-	  {
-	    "id": "41",
-	    "imgUrl": "./panoramas/41.png",
-	    "previewUrl": "",
-	    "coords": [
-	      547.0,
-	      -1126.0
-	    ]
-	  }
+		{
+		  "id": "0",
+		  "imgUrl": "./panoramas/0.png",
+		  "previewUrl": "",
+		  "coords": [
+			532.0,
+			-2301.0
+		  ]
+		},
+		{
+		  "id": "1",
+		  "imgUrl": "./panoramas/1.png",
+		  "previewUrl": "",
+		  "coords": [
+			-82.0,
+			-1771.0
+		  ]
+		},
+		{
+		  "id": "2",
+		  "imgUrl": "./panoramas/2.png",
+		  "previewUrl": "",
+		  "coords": [
+			-900.0,
+			-1525.0
+		  ]
+		},
+		{
+		  "id": "3",
+		  "imgUrl": "./panoramas/3.png",
+		  "previewUrl": "",
+		  "coords": [
+			-610.0,
+			-440.0
+		  ]
+		},
+		{
+		  "id": "4",
+		  "imgUrl": "./panoramas/4.png",
+		  "previewUrl": "",
+		  "coords": [
+			-1133.0,
+			400.0
+		  ]
+		},
+		{
+		  "id": "5",
+		  "imgUrl": "./panoramas/5.png",
+		  "previewUrl": "",
+		  "coords": [
+			-2404.0,
+			310.0
+		  ]
+		},
+		{
+		  "id": "6",
+		  "imgUrl": "./panoramas/6.png",
+		  "previewUrl": "",
+		  "coords": [
+			-1775.0,
+			1945.0
+		  ]
+		},
+		{
+		  "id": "7",
+		  "imgUrl": "./panoramas/7.png",
+		  "previewUrl": "",
+		  "coords": [
+			-1520.0,
+			2321.0
+		  ]
+		},
+		{
+		  "id": "8",
+		  "imgUrl": "./panoramas/8.png",
+		  "previewUrl": "",
+		  "coords": [
+			-123.0,
+			2853.0
+		  ]
+		},
+		{
+		  "id": "9",
+		  "imgUrl": "./panoramas/9.png",
+		  "previewUrl": "",
+		  "coords": [
+			882.0,
+			1203.0
+		  ]
+		},
+		{
+		  "id": "10",
+		  "imgUrl": "./panoramas/10.png",
+		  "previewUrl": "",
+		  "coords": [
+			363.0,
+			2340.0
+		  ]
+		},
+		{
+		  "id": "11",
+		  "imgUrl": "./panoramas/11.png",
+		  "previewUrl": "",
+		  "coords": [
+			831.0,
+			2267.0
+		  ]
+		},
+		{
+		  "id": "12",
+		  "imgUrl": "./panoramas/12.png",
+		  "previewUrl": "",
+		  "coords": [
+			1566.0,
+			2389.0
+		  ]
+		},
+		{
+		  "id": "13",
+		  "imgUrl": "./panoramas/13.png",
+		  "previewUrl": "",
+		  "coords": [
+			1369.0,
+			1985.0
+		  ]
+		},
+		{
+		  "id": "14",
+		  "imgUrl": "./panoramas/14.png",
+		  "previewUrl": "",
+		  "coords": [
+			2158.0,
+			1379.0
+		  ]
+		},
+		{
+		  "id": "15",
+		  "imgUrl": "./panoramas/15.png",
+		  "previewUrl": "",
+		  "coords": [
+			2683.0,
+			1037.0
+		  ]
+		},
+		{
+		  "id": "16",
+		  "imgUrl": "./panoramas/16.png",
+		  "previewUrl": "",
+		  "coords": [
+			2237.0,
+			434.0
+		  ]
+		},
+		{
+		  "id": "17",
+		  "imgUrl": "./panoramas/17.png",
+		  "previewUrl": "",
+		  "coords": [
+			2541.0,
+			-222.0
+		  ]
+		},
+		{
+		  "id": "18",
+		  "imgUrl": "./panoramas/18.png",
+		  "previewUrl": "",
+		  "coords": [
+			2407.0,
+			-680.0
+		  ]
+		},
+		{
+		  "id": "19",
+		  "imgUrl": "./panoramas/19.png",
+		  "previewUrl": "",
+		  "coords": [
+			3264.0,
+			-951.0
+		  ]
+		},
+		{
+		  "id": "20",
+		  "imgUrl": "./panoramas/20.png",
+		  "previewUrl": "",
+		  "coords": [
+			2819.0,
+			-753.0
+		  ]
+		},
+		{
+		  "id": "21",
+		  "imgUrl": "./panoramas/21.png",
+		  "previewUrl": "",
+		  "coords": [
+			3559.0,
+			-2184.0
+		  ]
+		},
+		{
+		  "id": "22",
+		  "imgUrl": "./panoramas/22.png",
+		  "previewUrl": "",
+		  "coords": [
+			2868.0,
+			-2981.0
+		  ]
+		},
+		{
+		  "id": "23",
+		  "imgUrl": "./panoramas/23.png",
+		  "previewUrl": "",
+		  "coords": [
+			1864.0,
+			-1892.0
+		  ]
+		},
+		{
+		  "id": "24",
+		  "imgUrl": "./panoramas/24.png",
+		  "previewUrl": "",
+		  "coords": [
+			1647.0,
+			-2213.0
+		  ]
+		},
+		{
+		  "id": "25",
+		  "imgUrl": "./panoramas/25.png",
+		  "previewUrl": "",
+		  "coords": [
+			1429.0,
+			-2408.0
+		  ]
+		},
+		{
+		  "id": "26",
+		  "imgUrl": "./panoramas/26.png",
+		  "previewUrl": "",
+		  "coords": [
+			2395.0,
+			-2424.0
+		  ]
+		},
+		{
+		  "id": "27",
+		  "imgUrl": "./panoramas/27.png",
+		  "previewUrl": "",
+		  "coords": [
+			1299.0,
+			-1217.0
+		  ]
+		},
+		{
+		  "id": "28",
+		  "imgUrl": "./panoramas/28.png",
+		  "previewUrl": "",
+		  "coords": [
+			285.0,
+			-1919.0
+		  ]
+		},
+		{
+		  "id": "29",
+		  "imgUrl": "./panoramas/29.png",
+		  "previewUrl": "",
+		  "coords": [
+			-197.0,
+			-2408.0
+		  ]
+		},
+		{
+		  "id": "30",
+		  "imgUrl": "./panoramas/30.png",
+		  "previewUrl": "",
+		  "coords": [
+			-861.0,
+			-1853.0
+		  ]
+		},
+		{
+		  "id": "31",
+		  "imgUrl": "./panoramas/31.png",
+		  "previewUrl": "",
+		  "coords": [
+			-1768.0,
+			-875.0
+		  ]
+		},
+		{
+		  "id": "32",
+		  "imgUrl": "./panoramas/32.png",
+		  "previewUrl": "",
+		  "coords": [
+			-2709.0,
+			-722.0
+		  ]
+		},
+		{
+		  "id": "33",
+		  "imgUrl": "./panoramas/33.png",
+		  "previewUrl": "",
+		  "coords": [
+			-2801.0,
+			-265.0
+		  ]
+		},
+		{
+		  "id": "34",
+		  "imgUrl": "./panoramas/34.png",
+		  "previewUrl": "",
+		  "coords": [
+			318.0,
+			-227.0
+		  ]
+		},
+		{
+		  "id": "35",
+		  "imgUrl": "./panoramas/35.png",
+		  "previewUrl": "",
+		  "coords": [
+			684.0,
+			-10.0
+		  ]
+		},
+		{
+		  "id": "36",
+		  "imgUrl": "./panoramas/36.png",
+		  "previewUrl": "",
+		  "coords": [
+			1350.0,
+			-905.0
+		  ]
+		},
+		{
+		  "id": "37",
+		  "imgUrl": "./panoramas/37.png",
+		  "previewUrl": "",
+		  "coords": [
+			133.0,
+			138.0
+		  ]
+		},
+		{
+		  "id": "38",
+		  "imgUrl": "./panoramas/38.png",
+		  "previewUrl": "",
+		  "coords": [
+			451.0,
+			488.0
+		  ]
+		},
+		{
+		  "id": "39",
+		  "imgUrl": "./panoramas/39.png",
+		  "previewUrl": "",
+		  "coords": [
+			225.0,
+			1465.0
+		  ]
+		},
+		{
+		  "id": "40",
+		  "imgUrl": "./panoramas/40.png",
+		  "previewUrl": "",
+		  "coords": [
+			426.0,
+			816.0
+		  ]
+		},
+		{
+		  "id": "41",
+		  "imgUrl": "./panoramas/41.png",
+		  "previewUrl": "",
+		  "coords": [
+			547.0,
+			-1126.0
+		  ]
+		}
 	];
 
-	images.filter(function (e){ return (!excluded.includes(e.id)) });
+	// Shuffle array
+	images.sort(() => 0.5 - Math.random());
 
-	let randomImg = images[Math.floor(Math.random() * images.length)];
-	return randomImg;
+	// Get first 5
+	return images.slice(0, 5);
 }
+
+panoramas = randomImages();
+
+// Preload images by loading into browser cache
+panoramas.forEach((panorama) => {
+	let img = new Image();
+    img.src = panorama.imgUrl;
+});
 
 function getSettings(){
 	if (window.location.search){
@@ -586,7 +593,7 @@ async function completeRound(){
 	let distance = Math.sqrt(
 		Math.abs(sfCorrectCoords[0] - sfUserCoords[0]) ** 2 +
 		Math.abs(sfCorrectCoords[1] - sfUserCoords[1]) ** 2
-	)
+	);
 	let score = Math.round(5000*Math.E**((distance*Math.log(700/2500))/1001));
 	if (distance <= 80) score = 5000;
 	totalScore += score;
@@ -647,7 +654,7 @@ function startRound(){
 		iconUrl: markerPath,
 		iconSize: [25, 25],
 		iconAnchor: [12.5, 25]
-	})
+	});
 	userMarker = new L.marker([-1e4, -1e4], {icon: markerIcon});
 	userMarker.setLatLng(L.latLng(-1e4, -1e4))
 	userMarker.addTo(map);
@@ -660,8 +667,8 @@ function startRound(){
 	let viewer = initPannellum();
 
 	// Get random panorama image to display next
-	let image = randomImage(usedPanoramas);
-	usedPanoramas.push(image.id);
+	let image = panoramas[roundCounter - 1];
+	console.log(image);
 
 	viewer.addScene("scene", {
 		"panorama": image.imgUrl,
