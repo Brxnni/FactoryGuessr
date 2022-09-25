@@ -18,6 +18,7 @@ This code is a mess. Anyways:
 * TODO: Prevent leaflet from 404'ing so much
 * TODO: Add __pycache__ to .gitignore
 * TODO: Change score formula accordingly to Easy/Hard Mode
+* TODO: Fix bug where user places pin on wrong map and gets 0 points
 
 ## Ideas
 
